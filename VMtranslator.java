@@ -47,7 +47,7 @@ public class VMtranslator {
 
             File fileOut;
 
-            CodeWriter writer;
+            AssemblyConverter writer;
 
             ArrayList<File> vmFiles = new ArrayList<File>();
 
@@ -82,7 +82,7 @@ public class VMtranslator {
             }
 
             fileOut = new File(fileOutPath);
-            writer = new CodeWriter(fileOut);
+            writer = new AssemblyConverter(fileOut);
 
             for (File f : vmFiles) {
 

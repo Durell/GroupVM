@@ -4,7 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.PrintWriter;
 
-public class CodeWriter {
+public class AssemblyConverter {
 
 	private int arthJumpFlag;
 	private PrintWriter outPrinter;
@@ -15,7 +15,7 @@ public class CodeWriter {
 	 * @param fileOut
 	 *            can be a directory!
 	 */
-	public CodeWriter(File fileOut) {
+	public AssemblyConverter(File fileOut) {
 
 		try {
 
@@ -34,7 +34,7 @@ public class CodeWriter {
 	 * â€œIf the programâ€™s argument is a directory name rather than a file
 	 * name, the main program should process all the .vm files in this
 	 * directory. In doing so, it should use a separate Parser for handling each
-	 * input file and a single CodeWriter for handling the output.
+	 * input file and a single AssemblyConverter for handling the output.
 	 *
 	 * Inform the CodeWrither that the translation of a new VM file is started
 	 */
