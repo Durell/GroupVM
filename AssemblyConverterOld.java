@@ -114,35 +114,35 @@ public class AssemblyConverter {
 
 			} else if (segment.equals("local")) {
 
-				outPrinter.print(pushTemplate1("LCL", index, false));
+				outPrinter.print(pushCode("LCL", index, false));
 
 			} else if (segment.equals("argument")) {
 
-				outPrinter.print(pushTemplate1("ARG", index, false));
+				outPrinter.print(pushCode("ARG", index, false));
 
 			} else if (segment.equals("this")) {
 
-				outPrinter.print(pushTemplate1("THIS", index, false));
+				outPrinter.print(pushCode("THIS", index, false));
 
 			} else if (segment.equals("that")) {
 
-				outPrinter.print(pushTemplate1("THAT", index, false));
+				outPrinter.print(pushCode("THAT", index, false));
 
 			} else if (segment.equals("temp")) {
 
-				outPrinter.print(pushTemplate1("R5", index + 5, false));
+				outPrinter.print(pushCode("R5", index + 5, false));
 
 			} else if (segment.equals("pointer") && index == 0) {
 
-				outPrinter.print(pushTemplate1("THIS", index, true));
+				outPrinter.print(pushCode("THIS", index, true));
 
 			} else if (segment.equals("pointer") && index == 1) {
 
-				outPrinter.print(pushTemplate1("THAT", index, true));
+				outPrinter.print(pushCode("THAT", index, true));
 
 			} else if (segment.equals("static")) {
 
-				outPrinter.print(pushTemplate1(String.valueOf(16 + index), index, true));
+				outPrinter.print(pushCode(String.valueOf(16 + index), index, true));
 
 			}
 
@@ -150,35 +150,35 @@ public class AssemblyConverter {
 
 			if (segment.equals("local")) {
 
-				outPrinter.print(popTemplate1("LCL", index, false));
+				outPrinter.print(popCode("LCL", index, false));
 
 			} else if (segment.equals("argument")) {
 
-				outPrinter.print(popTemplate1("ARG", index, false));
+				outPrinter.print(popCode("ARG", index, false));
 
 			} else if (segment.equals("this")) {
 
-				outPrinter.print(popTemplate1("THIS", index, false));
+				outPrinter.print(popCode("THIS", index, false));
 
 			} else if (segment.equals("that")) {
 
-				outPrinter.print(popTemplate1("THAT", index, false));
+				outPrinter.print(popCode("THAT", index, false));
 
 			} else if (segment.equals("temp")) {
 
-				outPrinter.print(popTemplate1("R5", index + 5, false));
+				outPrinter.print(popCode("R5", index + 5, false));
 
 			} else if (segment.equals("pointer") && index == 0) {
 
-				outPrinter.print(popTemplate1("THIS", index, true));
+				outPrinter.print(popCode("THIS", index, true));
 
 			} else if (segment.equals("pointer") && index == 1) {
 
-				outPrinter.print(popTemplate1("THAT", index, true));
+				outPrinter.print(popCode("THAT", index, true));
 
 			} else if (segment.equals("static")) {
 
-				outPrinter.print(popTemplate1(String.valueOf(16 + index), index, true));
+				outPrinter.print(popCode(String.valueOf(16 + index), index, true));
 
 			}
 
@@ -252,7 +252,7 @@ public class AssemblyConverter {
 	 *            Is this command a direct addressing?
 	 * @return
 	 */
-	private String pushTemplate1(String segment, int index, boolean isDirect) {
+	private String pushCode(String segment, int index, boolean isDirect) {
 
 		// When it is a pointer, just read the data stored in THIS or THAT
 		// When it is static, just read the data stored in that address
@@ -277,7 +277,7 @@ public class AssemblyConverter {
 	 *            Is this command a direct addressing?
 	 * @return
 	 */
-	private String popTemplate1(String segment, int index, boolean isDirect) {
+	private String popCode(String segment, int index, boolean isDirect) {
 
 		// When it is a pointer R13 will store the address of THIS or THAT
 		// When it is a static R13 will store the index address
